@@ -1,4 +1,4 @@
-import { Entity , Column , PrimaryGeneratedColumn, OneToMany} from "typeorm";
+import { Entity , Column , PrimaryGeneratedColumn, OneToMany, ManyToMany} from "typeorm";
 import { BaseEntity } from "../newsletter.base-entity";
 import { NewsletterEntity as Newsletter} from "./newsletter.entity";
 import { SubscriberEntity as Subscriber } from "./subscriber.entity";
@@ -19,6 +19,6 @@ export class AuthorEntity extends BaseEntity{
     @OneToMany(()=> Newsletter , nl => nl.author)
     newsletters : Newsletter[]
 
-    @OneToMany(()=> Subscriber , subscriber => subscriber.authors )
+    @ManyToMany(()=> Subscriber , subscriber => subscriber.authors )
     subscribers : Subscriber[]
 }
