@@ -1,5 +1,6 @@
-import { Column , Entity } from "typeorm";
+import { Column , Entity, JoinColumn, ManyToMany } from "typeorm";
 import { BaseEntity } from "../newsletter.base-entity";
+import { AuthorEntity as Author } from "./author.entity";
 
 @Entity()
 export class SubscriberEntity extends BaseEntity{
@@ -9,5 +10,9 @@ export class SubscriberEntity extends BaseEntity{
 
     @Column({type : 'varchar' , length : 20 ,nullable : true})
     sname : string;
+
+    @ManyToMany(() => Author , authors => authors.subscribers)
+    @JoinColumn({name : 'id'})
+    authors : Author
 
 }

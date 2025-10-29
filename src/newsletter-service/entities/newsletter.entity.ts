@@ -1,5 +1,6 @@
-import { Entity , Column  } from "typeorm";
+import { Entity , Column, ManyToOne, JoinColumn  } from "typeorm";
 import { BaseEntity } from "../newsletter.base-entity";
+import { AuthorEntity as Author } from "./author.entity";
 
 @Entity()
 export class NewsletterEntity extends BaseEntity
@@ -14,6 +15,8 @@ export class NewsletterEntity extends BaseEntity
     @Column({type : 'varchar' , length : 500 , nullable : true})
     nlsig : string;
 
-    
+    @ManyToOne(()=> Author , author => author.newsletters)
+    @JoinColumn({name : 'id'})
+    author : Author
 
 }

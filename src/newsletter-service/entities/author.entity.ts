@@ -1,6 +1,7 @@
 import { Entity , Column , PrimaryGeneratedColumn, OneToMany} from "typeorm";
 import { BaseEntity } from "../newsletter.base-entity";
-
+import { NewsletterEntity as Newsletter} from "./newsletter.entity";
+import { SubscriberEntity as Subscriber } from "./subscriber.entity";
 
 @Entity()
 export class AuthorEntity extends BaseEntity{
@@ -15,5 +16,9 @@ export class AuthorEntity extends BaseEntity{
     @Column({type : 'varchar' , length : 400 , nullable : true})
     author_social : string;
 
+    @OneToMany(()=> Newsletter , nl => nl.author)
+    newsletters : Newsletter[]
 
+    @OneToMany(()=> Subscriber , subscriber => subscriber.authors )
+    subscribers : Subscriber[]
 }
