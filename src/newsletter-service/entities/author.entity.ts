@@ -1,4 +1,4 @@
-import { Entity , Column , PrimaryGeneratedColumn, OneToMany, ManyToMany} from "typeorm";
+import { Entity , Column , OneToMany, ManyToMany} from "typeorm";
 import { BaseEntity } from "../newsletter.base-entity";
 import { NewsletterEntity as Newsletter} from "./newsletter.entity";
 import { SubscriberEntity as Subscriber } from "./subscriber.entity";
