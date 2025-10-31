@@ -1,4 +1,4 @@
-import { Column , Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne } from "typeorm";
+import { Column , Entity, JoinTable, ManyToMany } from "typeorm";
 import { BaseEntity } from "../newsletter.base-entity";
 import { AuthorEntity as Author } from "./author.entity";
 

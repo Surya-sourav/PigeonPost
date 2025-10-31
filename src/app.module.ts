@@ -3,7 +3,12 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
-import { NewsletterServiceModule } from './newsletter-service/newsletter.module';
+import { AuthorEntity as Author } from './newsletter-service/entities/author.entity';
+import { SubscriberEntity as Subscriber } from './newsletter-service/entities/subscriber.entity';
+import { NewsletterEntity as Newsletter } from './newsletter-service/entities/newsletter.entity';
+
+import { AuthorModule } from './newsletter-service/author/author.module';
+
 @Module({
   imports: [ConfigModule.forRoot({
     envFilePath : '.env',
@@ -16,18 +21,16 @@ import { NewsletterServiceModule } from './newsletter-service/newsletter.module'
     password : process.env.PGPASSWORD,
     username : process.env.PGUSER,
     database : process.env.PGDATABASE,
+    entities : [Author , Subscriber , Newsletter],
     synchronize : true,
     logging : true,
     ssl : true ,
-    poolErrorHandler(err) {
-      throw new err;
-    },
-
   }) , 
-  NewsletterServiceModule
+
+  AuthorModule
 ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController ],
+  providers: [AppService ],
   
 })
 export class AppModule {}

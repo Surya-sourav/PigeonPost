@@ -8,9 +8,9 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 @Module({
 
     imports : [TypeOrmModule.forFeature([Author])],
-    providers : [AuthorService , AuthorRepository],
     controllers : [AuthController],
-    exports : [AuthorRepository , AuthorService]
+    providers : [AuthorService , AuthorRepository],
+    exports : [ AuthorService]
 })
 
 export class AuthorModule {}
