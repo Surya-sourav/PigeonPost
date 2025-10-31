@@ -7,7 +7,7 @@ import { BaseEntity  as TypeOrmBaseEntity } from "typeorm";
 export abstract class BaseEntity extends TypeOrmBaseEntity {
 
     @PrimaryGeneratedColumn()
-    id : number;
+    id : string;
 
     @CreateDateColumn({type : 'timestamp' , default:() => 'CURRENT_TIMESTAMP'})
     createdAt : Date;

@@ -13,6 +13,6 @@ export class SubscriberEntity extends BaseEntity{
 
     @ManyToMany(() => Author , authors => authors.subscribers)
     @JoinTable({name : 'subscriber_authors'})
-    authors : Author
+    authors : Author[]
 
 }

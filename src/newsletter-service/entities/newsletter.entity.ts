@@ -16,7 +16,7 @@ export class NewsletterEntity extends BaseEntity
     nlsig : string;
 
     @ManyToOne(()=> Author , author => author.newsletters)
-    @JoinColumn({name : 'id'})
+    @JoinColumn({name : 'author_id'})
     author : Author
 
 }

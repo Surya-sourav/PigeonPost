@@ -3,7 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
-
+import { NewsletterServiceModule } from './newsletter-service/newsletter.module';
 @Module({
   imports: [ConfigModule.forRoot({
     envFilePath : '.env',
@@ -18,10 +18,16 @@ import { ConfigModule } from '@nestjs/config';
     database : process.env.PGDATABASE,
     synchronize : true,
     logging : true,
-    ssl : true 
+    ssl : true ,
+    poolErrorHandler(err) {
+      throw new err;
+    },
 
-  })],
+  }) , 
+  NewsletterServiceModule
+],
   controllers: [AppController],
   providers: [AppService],
+  
 })
 export class AppModule {}
