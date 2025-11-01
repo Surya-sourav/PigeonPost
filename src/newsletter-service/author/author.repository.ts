@@ -28,7 +28,7 @@ export class AuthorRepository{
     async GetAuthorById(id : string) : Promise<any>{
 
         const author = await this.authorRepository.findOne({
-            where : {id}
+            where :  {id : id}
         });
 
         if(!author){ throw new Error('Author Not Found !'); }

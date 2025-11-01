@@ -22,7 +22,7 @@ export class AuthorService {
         }
     }
 
-    async GetAuthorById(id) : Promise<any>{
+    async GetAuthorById(id : any) : Promise<any>{
 
         const author = await this.authorRepository.GetAuthorById(id);
 

@@ -13,7 +13,7 @@ export abstract class BaseEntity extends TypeOrmBaseEntity {
     @UpdateDateColumn({type : 'timestamp' , default:()=> 'CURRENT_TIMESTAMP'})
     updatedAt : Date;
 
-    @DeleteDateColumn({type : 'timestamp' , default:()=> 'CURRENT_TIMESTAMP' })
+    @DeleteDateColumn({type : 'timestamp' , nullable : true })
     deletedAt : Date;
 
 }

@@ -1,8 +1,8 @@
 {
-  "name": "email",
+  "name": "newsletterengine",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "A Self Hosted Newsletter Engine that is capable of Creating & Posting Newsletters",
+  "author": "Surya Parida",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
