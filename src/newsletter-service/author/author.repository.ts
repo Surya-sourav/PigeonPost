@@ -1,4 +1,4 @@
-import { Repository } from "typeorm";
+import { Auth, Repository } from "typeorm";
 import { Injectable } from "@nestjs/common";
 import { AuthorEntity as Author } from "../entities/author.entity";
 import { InjectRepository } from "@nestjs/typeorm";
@@ -13,7 +13,7 @@ export class AuthorRepository{
 
     async CreateAuthor(authorDetails : CreateAuthorDTO ) : Promise<Author>
     {   
-        try {
+       
             const new_author = this.authorRepository.create({
                 author_name : authorDetails.author_name,
                 author_bio : authorDetails.author_bio,
@@ -22,23 +22,18 @@ export class AuthorRepository{
             })
 
             return this.authorRepository.save(new_author);
-        }
-        catch(error){
-            return error;
-        }
+        
     }
 
-    async GetAuthorById(id : string) : Promise<Author>{
+    async GetAuthorById(id : string) : Promise<any>{
 
         const author = await this.authorRepository.findOne({
-                where : {
-                    id 
-                }
-        })
+            where : {id}
+        });
 
         if(!author){ throw new Error('Author Not Found !'); }
-
-        return author ;
+        
+        return author;
     }
 
 }

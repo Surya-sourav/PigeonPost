@@ -6,7 +6,6 @@ import { SubscriberEntity as Subscriber } from "./subscriber.entity";
 @Entity()
 export class AuthorEntity extends BaseEntity{
 
-
     @Column({type : 'varchar' , length : 30 , nullable : false })
     author_name : string;
 

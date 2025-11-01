@@ -9,16 +9,25 @@ export class AuthorService {
 
     async CreateAuthor(createAuthordto : any) : Promise<any>{
 
-    try{
-        const Created = await this.authorRepository.CreateAuthor(createAuthordto);
+        try
+        {
+            const Created = await this.authorRepository.CreateAuthor(createAuthordto);
         
-        return Created;
+            return Created;
+        }
+        
+        catch(error)
+        {
+            throw error;
+        }
     }
-    
-    catch(error)
-    {
-        throw error;
+
+    async GetAuthorById(id) : Promise<any>{
+
+        const author = await this.authorRepository.GetAuthorById(id);
+
+        return author;
+
     }
-}
 
 }

@@ -1,12 +1,10 @@
-import { PrimaryGeneratedColumn , DeleteDateColumn , CreateDateColumn , UpdateDateColumn, Entity } from "typeorm";
-import { Injectable } from "@nestjs/common";
+import { PrimaryGeneratedColumn , DeleteDateColumn , CreateDateColumn , UpdateDateColumn } from "typeorm";
 import { BaseEntity  as TypeOrmBaseEntity } from "typeorm";
 
-@Entity()
-@Injectable()
+
 export abstract class BaseEntity extends TypeOrmBaseEntity {
 
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn('uuid')
     id : string;
 
     @CreateDateColumn({type : 'timestamp' , default:() => 'CURRENT_TIMESTAMP'})

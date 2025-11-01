@@ -16,6 +16,8 @@ export class AuthController{
         // Invoke the Author Service to create the Author ! 
 
         const creation = await  this.AuthorService.CreateAuthor(createAuthordto);
+
+        console.log('Created Author Successfully' , creation);
         return {
             success : true,
             creation
@@ -25,9 +27,15 @@ export class AuthController{
 
 
     @Get('/:id')
-    async GetAuthorById( @Param('id') id : any){
+    async GetAuthorById( @Param('id') id : string){
 
         // Invoke the Author Service to Fetch the AuthorId 
+       
+            const author = await this.AuthorService.GetAuthorById(id);
+        return {
+            fetched : true,
+            author
+    };
 
     }
 
