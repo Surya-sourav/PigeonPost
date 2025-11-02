@@ -30,8 +30,7 @@ export class AuthController{
     async GetAuthorById( @Param('id') id : string){
 
         // Invoke the Author Service to Fetch the AuthorId 
-       
-            const author = await this.AuthorService.GetAuthorById(id);
+        const author = await this.AuthorService.GetAuthorById(id);
         return {
             fetched : true,
             author
