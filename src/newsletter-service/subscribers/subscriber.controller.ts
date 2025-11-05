@@ -1,12 +1,15 @@
-import { Controller , Post , Get } from "@nestjs/common";
+import { Controller , Post , Get, Body } from "@nestjs/common";
 
 @Controller('subscriber')
 export class SubscriberController {
 
-    // Get Request to Fetch the Subscribers per Author 
 
     //Post Request to Subscribe to an Author 
+    // @Post('/:id/subscribe')
+    // async subscribe(@Body())
 
+
+    // Delete a Subscriber from the Author 
     
 
 }
