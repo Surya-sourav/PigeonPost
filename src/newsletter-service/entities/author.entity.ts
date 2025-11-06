@@ -21,6 +21,6 @@ export class AuthorEntity extends BaseEntity{
     @OneToMany(()=> Newsletter , nl => nl.author)
     newsletters : Newsletter[]
 
-    @ManyToMany(()=> Subscriber , subscriber => subscriber.authors )
+    @OneToMany(()=> Subscriber , subscriber => subscriber.author )
     subscribers : Subscriber[]
 }

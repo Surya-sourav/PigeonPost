@@ -9,4 +9,16 @@ export class SubscriberRepository{
     constructor(@InjectRepository(Subscriber) private subsRepository : Repository<Subscriber>)
     {}
 
+
+    async getSubscribersofAuthor() : Promise<any> {
+
+        await this.subsRepository.find({
+            relations : {
+                author : true,
+            },
+        })
+
+
+    }
+
 }

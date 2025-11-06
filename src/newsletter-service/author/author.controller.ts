@@ -24,8 +24,6 @@ export class AuthController{
         }
     }
 
-
-
     @Get('/:id')
     async GetAuthorById( @Param('id') id : string){
 
@@ -41,7 +39,7 @@ export class AuthController{
     @Get('/:id/subscribers')
     async GetSubscribersPerAuthor( @Param('id') id : any){
 
-        // A Paginated API that would call the Servcie to fetch all the Subscribers based on this AuthorID
+        // A Paginated API that would call the Subscriber Servcie to fetch all the Subscribers based on this AuthorID
 
         
     }
