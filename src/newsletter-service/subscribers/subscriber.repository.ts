@@ -12,11 +12,6 @@ export class SubscriberRepository{
 
     async getSubscribersofAuthor() : Promise<any> {
 
-        await this.subsRepository.find({
-            relations : {
-                author : true,
-            },
-        })
 
 
     }

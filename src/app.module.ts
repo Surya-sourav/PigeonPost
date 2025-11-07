@@ -6,7 +6,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AuthorEntity as Author } from './newsletter-service/entities/author.entity';
 import { SubscriberEntity as Subscriber } from './newsletter-service/entities/subscriber.entity';
 import { NewsletterEntity as Newsletter } from './newsletter-service/entities/newsletter.entity';
-
+import { SubscriiptionsEntity as Subscription } from './newsletter-service/entities/subscriptions.entity';
 import { AuthorModule } from './newsletter-service/author/author.module';
 
 @Module({
@@ -21,7 +21,7 @@ import { AuthorModule } from './newsletter-service/author/author.module';
     password : process.env.PGPASSWORD,
     username : process.env.PGUSER,
     database : process.env.PGDATABASE,
-    entities : [Author , Subscriber , Newsletter],
+  entities : [Author , Subscriber , Newsletter, Subscription],
     synchronize : true,
     logging : true,
     ssl : true ,
